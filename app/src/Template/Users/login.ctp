@@ -1,3 +1,6 @@
+<div class="columns large-12" style="height:30em; position:relative ">
+
+<div style="position:absolute; margin:0; top:50%;left:50%; margin-right:-50%;transform: translate(-50%,-50%)">
 <?php
 /**
  * @var \App\View\AppView $this
@@ -10,3 +13,5 @@
 <?= $this->Form->control('password') ?>
 <?= $this->Form->button('Login') ?>
 <?= $this->Form->end() ?>
+</div>
+</div>
