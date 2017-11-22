@@ -15,13 +15,22 @@
 
     <!-- Here is where we iterate through our $photos query object, printing out photo info -->
       <?php
-        foreach ($photos as $photo)
+        foreach ($query as $photo)
         {
           echo "<div class='columnPortfolio {$photo->tags}'>
           <div class='containerPortfolio'>
           <img class='portfolio' src='img/assets/{$photo->location}'>
           <div class='overlayPortfolio'>
-          <div class='textPortfolio'>{$photo->name}</div>
+          <div class='textPortfolio'>{$photo->metadata->camera}
+          <br>
+          {$photo->metadata->lens}
+          <br>
+          {$photo->metadata->shutterSpeed}
+          <br>
+          {$photo->metadata->aperture}
+          <br>
+          {$photo->metadata->ISO}
+          </div>
           </div>
           </div>
           </div>";

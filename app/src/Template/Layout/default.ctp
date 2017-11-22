@@ -45,6 +45,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <ul class="right">
               <li><?php echo $this->Html->link('Inicio', array('controller' => 'Pages','action' => 'display')); ?></li>
               <li><?php echo $this->Html->link('Portafolio', array('controller' => 'Photos','action' => 'index')); ?></li>
+              <li><?php echo $this->Html->link('Eventos', array('controller' => 'Blog','action' => 'index')); ?></li>
               <li><?php echo $this->Html->link('Acerca', array('controller' => 'Pages','action' => 'acerca')); ?></li>
               <li><?php echo $this->Html->link('Contacto', array('controller' => 'Pages','action' => 'contacto')); ?></li>
             </ul>

@@ -18,7 +18,9 @@ class PhotosController extends AppController
         $this->loadComponent('Paginator');
         $photos = $this->Paginator->paginate($this->Photos->find());
         $this->set(compact('photos'));
-}
+
+        $query = $this->Photos->find('all')->contain(['Metadata']);
+        $this->set(compact('query'));
     }
 
     public function view($name = null)
