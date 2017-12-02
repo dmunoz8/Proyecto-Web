@@ -1,3 +1,6 @@
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
 
 <div class="columns large-12">
 <h1>Portfolio</h1>
@@ -31,6 +34,7 @@
           <br>
           {$photo->metadata->ISO}
           </div>
+          <button class='fa fa-thumbs-o-up' onclick='addLike({$photo->id})'></button>
           </div>
           </div>
           </div>";
@@ -76,6 +80,17 @@ function RemoveClass(element, name) {
     }
   }
   element.className = arr1.join(" ");
+}
+
+function addLike(id)
+{
+  $.ajax({
+    url: '<?php echo $this->Url->build([
+      "controller" => "Photos",
+      "action" => "addLike"]) ?>',
+    type: 'POST',
+    data: {id: id}
+  });
 }
 
 </script>

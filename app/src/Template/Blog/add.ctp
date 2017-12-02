@@ -6,21 +6,21 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Blog'), ['action' => 'index']) ?></li>
+        <li class="heading"><?= __('Acciones') ?></li>
+        <li><?= $this->Html->link(__('Lista de Eventos'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
 <div class="blog form large-9 medium-8 columns content">
     <?= $this->Form->create($blog) ?>
     <fieldset>
-        <legend><?= __('Add Blog') ?></legend>
+        <legend><?= __('Agregar Evento') ?></legend>
         <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('description');
-            echo $this->Form->control('eventDate', ['empty' => true]);
-            echo $this->Form->control('place');
+            echo $this->Form->control('name', array('label' => 'Titulo'));
+            echo $this->Form->control('description', array('label' => 'Descripcion'));
+            echo $this->Form->control('eventDate',array('label' => 'Fecha'), ['empty' => false]);
+            echo $this->Form->control('place', array('label' => 'Lugar'));
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Agregar')) ?>
     <?= $this->Form->end() ?>
 </div>

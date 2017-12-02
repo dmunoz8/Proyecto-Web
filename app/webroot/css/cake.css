@@ -617,3 +617,44 @@ img.portfolio
 	width: 38%;
 	padding: 10px;
 }
+
+.containerEventos {
+    border: 2px solid #ccc;
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 16px;
+    margin: 16px 0;
+}
+
+/* Clear floats after containers */
+.containerEventos ::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Float images inside the container to the left. Add a right margin, and style the image as a circle */
+.containerEventos  img {
+    float: left;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+/* Increase the font-size of a span element */
+.containerEventos  span {
+    font-size: 20px;
+    margin-right: 15px;
+}
+
+/* Add media queries for responsiveness. This will center both the text and the image inside the container */
+@media (max-width: 500px) {
+  .containerEventos  {
+    text-align: center;
+  }
+
+  .containerEventos  img {
+    margin: auto;
+    float: none;
+    display: block;
+  }
+}

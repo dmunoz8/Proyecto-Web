@@ -39,8 +39,17 @@ class PhotosController extends AppController
                 $this->Flash->success(__('Your photo has been saved.'));
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('Unable to add your article.'));
+            $this->Flash->error(__('Unable to add your photo.'));
         }
         $this->set('photo', $photo);
     }
+
+  public function addLike()
+    {
+      $id = $this->request->data['id'];
+      $this->loadModel('Photos');
+      $this->Photos->id = $id;
+      $this->Photos->updateAll(array('Photos.likes' => 'Photos.likes + 1'), array('Photos.id' => $id));
+    }
+
 }
