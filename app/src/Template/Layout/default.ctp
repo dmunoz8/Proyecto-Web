@@ -29,6 +29,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
     <?= $this->Html->css('font-awesome/css/font-awesome.min.css') ?>
+    <?= $this->Html->css('login.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -36,19 +37,25 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </head>
 <body>
     <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
+        <ul class="title-area large-2 medium-3 columns">
             <li class="name">
                 <h1><a href=""><?= $this->fetch('title') ?></a></h1>
             </li>
         </ul>
         <div class="top-bar-section">
+            
             <ul class="right">
               <li><?php echo $this->Html->link('Inicio', array('controller' => 'Pages','action' => 'display')); ?></li>
               <li><?php echo $this->Html->link('Portafolio', array('controller' => 'Photos','action' => 'index')); ?></li>
               <li><?php echo $this->Html->link('Eventos', array('controller' => 'Blog','action' => 'index')); ?></li>
               <li><?php echo $this->Html->link('Acerca', array('controller' => 'Pages','action' => 'acerca')); ?></li>
               <li><?php echo $this->Html->link('Contacto', array('controller' => 'Pages','action' => 'contacto')); ?></li>
+
+              <?php if (isset($current_user)): ?>
+                <li><?php echo $this->Html->link('Salir', array('controller' => 'Users','action' => 'logout')); ?></li>
+              <?php endif; ?>
             </ul>
+            
         </div>
     </nav>
     <?= $this->Flash->render() ?>

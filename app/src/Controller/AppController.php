@@ -39,25 +39,35 @@ class AppController extends Controller
      */
     public function initialize()
     {
-        parent::initialize();
+        parent::initialize(); 
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
 
         $this->loadComponent('Auth', [
+                'authorize' => ['Controller'],
                 'authenticate' => [
                     'Form' => [
                         'fields' => [
                             'username' => 'email',
                             'password' => 'password'
-                        ]
+                        ]/*,
+                        'finder' => 'auth'*/
                     ]
                 ],
                 'loginAction' => [
                     'controller' => 'Users',
                     'action' => 'login'
                 ],
-                 // If unauthorized, return them to page they were just on
+                'authError' => 'Enter your login credentials',
+                'loginRedirect' => [
+                    'controller' => 'Users',
+                    'action' => 'index'
+                ],
+                'logoutRedirect' => [
+                    'controller' => 'Users',
+                    'action' => 'login'
+                ],
                 'unauthorizedRedirect' => $this->referer()
             ]);
 
@@ -90,4 +100,20 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
     }
+
+    public function beforeFilter(Event $event)
+    {
+        $this->set('current_user', $this->Auth->user());
+    }
+
+    public function isAuthorized($user){
+        
+        if (isset($user['role']) and $user['role'] === 'admin') 
+        {
+            return true;    
+        }
+
+        return false;
+    }
+    
 }

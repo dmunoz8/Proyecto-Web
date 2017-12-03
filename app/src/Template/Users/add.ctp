@@ -15,8 +15,10 @@
     <fieldset>
         <legend><?= __('Add User') ?></legend>
         <?php
+            echo $this->Form->control('name');
             echo $this->Form->control('email');
             echo $this->Form->control('password');
+            echo $this->Form->control('role', ['options' => ['admin' => 'Administrator', 'user' => 'User']]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
