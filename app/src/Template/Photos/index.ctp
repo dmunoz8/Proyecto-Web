@@ -4,10 +4,8 @@
 
 <div class="columns large-12">
 <h1>Portfolio</h1>
-<?php if (isset($current_user)): ?>
-  <?= $this->Html->link('Add Photo', ['action' => 'add']) ?>
-<?php endif; ?>
-  
+
+<?= $this->Html->link('Add Photo', ['action' => 'add']) ?>
 <br>
 <br>
 <input type="radio" onclick="filterSelection('all')" name="category" checked> Show all

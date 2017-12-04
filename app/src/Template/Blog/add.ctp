@@ -4,13 +4,13 @@
  * @var \App\Model\Entity\Blog $blog
  */
 ?>
-<nav class="large-2 medium-3 columns" id="actions-sidebar">
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Acciones') ?></li>
         <li><?= $this->Html->link(__('Lista de Eventos'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
-<div class="blog form large-10 medium-9 columns content">
+<div class="blog form large-9 medium-8 columns content">
     <?= $this->Form->create($blog) ?>
     <fieldset>
         <legend><?= __('Agregar Evento') ?></legend>

@@ -2,7 +2,6 @@
 namespace App\Model\Table;
 
 use Cake\ORM\Query;
-use App\Model\Entity\User;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -74,14 +73,4 @@ class UsersTable extends Table
 
         return $rules;
     }
-
-    public function findAuth(\Cake\ORM\Query $query, array $options)
-    {
-        $query
-            ->select(['id','name','role','email'])
-            ->where(['Users.role' => 'admin']);
-
-        return $query;
-    }
-    
 }

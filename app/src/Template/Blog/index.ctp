@@ -4,14 +4,12 @@
  * @var \App\Model\Entity\Blog[]|\Cake\Collection\CollectionInterface $blog
  */
 ?>
-<?php if (isset($current_user)): ?>
-  <nav class="large-3 medium-4 columns" id="actions-sidebar">
-      <ul class="side-nav">
-          <li class="heading"><?= __('Acciones') ?></li>
-          <li><?= $this->Html->link(__('Nuevo Evento'), ['action' => 'add']) ?></li>
-      </ul>
-  </nav>
-<?php endif; ?>
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading"><?= __('Acciones') ?></li>
+        <li><?= $this->Html->link(__('Nuevo Evento'), ['action' => 'add']) ?></li>
+    </ul>
+</nav>
 <div class="blog index large-9 medium-8 columns content">
     <h3><?= __('Eventos') ?></h3>
 

@@ -12,17 +12,6 @@ use App\Controller\AppController;
  */
 class UsersController extends AppController
 {
-    
-    public function isAuthorized($user)
-    {
-        if (isset($user['role']) and $user['role'] === 'user') {
-            if(in_array($this->request->action, ['index', 'view'])){
-                return true; 
-            }
-        }
-
-        return parent::isAuthorized($user);
-    }
 
     /**
      * Index method
@@ -124,17 +113,11 @@ class UsersController extends AppController
 	{
 		if ($this->request->is('post')) {
 			$user = $this->Auth->identify();
-			if ($user) { 
+			if ($user) {
 				$this->Auth->setUser($user);
 				return $this->redirect($this->Auth->redirectUrl());
-			}else{
-                $this->Flash->error('Your username or password is incorrect.', ['key' => 'auth']);
-            }
+			}
+			$this->Flash->error('Your username or password is incorrect.');
 		}
 	}
-
-    public function logout()
-    {
-        return $this->redirect($this->Auth->logout());
-    }
 }
