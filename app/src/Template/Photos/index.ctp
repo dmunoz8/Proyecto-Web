@@ -1,32 +1,40 @@
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
 
-<div class="columns large-12">
-<h1>Portafolio</h1>
-
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+      <ul class="side-nav">
+<h1 style="font-family: 'Raleway', sans-serif; font-weight: bold;">Portafolio</h1>
+<br>
 <?php
   if($authUser)
   {
     echo $this->Html->link('Agregar Foto', ['action' => 'add']);
   }
   ?>
-<br>
-<br>
-<input type="radio" onclick="filterSelection('all')" name="category" checked> Todas
-<input type="radio" onclick="filterSelection('Paisaje')" name="category"> Paisaje
-<input type="radio" onclick="filterSelection('Urbano')" name="category"> Urbano
-<input type="radio" onclick="filterSelection('Arquitectura')" name="category"> Arquitectura
-<input type="radio" onclick="filterSelection('Blanco&Negro')" name="category"> Blanco & Negro
-<input type="radio" onclick="filterSelection('Retrato')" name="category"> Retrato
+  <br>
+  <br>
+  <p style="font-family: 'Raleway', sans-serif;"><strong>Filtrar:</strong></p>
+  <input type="radio" onclick="filterSelection('all')" name="category" checked> Todas
+  <br>
+  <input type="radio" onclick="filterSelection('Paisaje')" name="category"> Paisaje
+  <br>
+  <input type="radio" onclick="filterSelection('Urbano')" name="category"> Urbano
+  <br>
+  <input type="radio" onclick="filterSelection('Arquitectura')" name="category"> Arquitectura
+  <br>
+  <input type="radio" onclick="filterSelection('Blanco&Negro')" name="category"> Blanco & Negro
+  <br>
+  <input type="radio" onclick="filterSelection('Retrato')" name="category"> Retrato
+</ul>
+</nav>
 
-<div class="rowPortfolio">
+<div class="users index large-9 medium-8 columns content">
+
+<div class="masonry">
 
     <!-- Here is where we iterate through our $photos query object, printing out photo info -->
       <?php
         foreach ($query as $photo)
         {
-          echo "<div class='columnPortfolio {$photo->tags}'>
+          echo "<div class='item {$photo->tags}'>
           <div class='containerPortfolio'>
           <img class='portfolio' src='img/assets/{$photo->location}'>
           <div class='overlayPortfolio'>
@@ -71,7 +79,7 @@
 filterSelection("all") // Execute the function and show all columns
 function filterSelection(c) {
   var x, i;
-  x = document.getElementsByClassName("columnPortfolio");
+  x = document.getElementsByClassName("item");
   if (c == "all") c = "";
   // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
   for (i = 0; i < x.length; i++) {

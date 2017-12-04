@@ -7,7 +7,7 @@
 
 <div class="row">
   <div class="column large-4">
-    <h4><i class="fa fa-camera fa-1x" aria-hidden="true"></i>     <strong>Fotograf&iacutea</strong></h4>
+    <h4 style="font-family: 'Raleway', sans-serif; font-weight: bold;"><i class="fa fa-camera fa-1x" aria-hidden="true"></i>     <strong>Fotograf&iacutea</strong></h4>
     <br>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
       incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -18,7 +18,7 @@
   </div>
 
   <div class="column large-4">
-    <h4><i class="fa fa-video-camera fa-1x" aria-hidden="true"></i>      <strong>Cinematograf&iacutea</strong></h4>
+    <h4 style="font-family: 'Raleway', sans-serif; font-weight: bold;"><i class="fa fa-video-camera fa-1x" aria-hidden="true"></i>      <strong>Cinematograf&iacutea</strong></h4>
     <br>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
       incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -29,7 +29,7 @@
   </div>
 
   <div class="column large-4">
-    <h4><i class="fa fa-cog fa-1x" aria-hidden="true"></i>     <strong>Soluciones Creativas</strong></h4>
+    <h4 style="font-family: 'Raleway', sans-serif; font-weight: bold;"><i class="fa fa-cog fa-1x" aria-hidden="true"></i>     <strong>Soluciones Creativas</strong></h4>
     <br>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
       incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud

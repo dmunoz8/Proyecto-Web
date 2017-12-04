@@ -6,12 +6,11 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Acciones') ?></li>
-        <li><?= $this->Html->link(__('Nuevo Metadato'), ['action' => 'add']) ?></li>
+      <h1 style="font-family: 'Raleway', sans-serif; font-weight: bold;">Metadatos</h1>
+        <li><?= $this->Html->link(__('Agregar Metadato'), ['action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="metadata index large-9 medium-8 columns content">
-    <h3><?= __('Metadatos') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
@@ -20,7 +19,7 @@
                 <th scope="col"><?= $this->Paginator->sort('Velocidad') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('Apertura') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('ISO') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
+                <th scope="col" class="actions"><?= __('Acciones') ?></th>
             </tr>
         </thead>
         <tbody>
@@ -32,7 +31,6 @@
                 <td><?= h($metadata->aperture) ?></td>
                 <td><?= h($metadata->ISO) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $metadata->preferences]) ?>
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $metadata->preferences]) ?>
                     <?= $this->Form->postLink(__('Borrar'), ['action' => 'delete', $metadata->preferences], ['confirm' => __('Seguro que desea borrar el metadato # {0}?', $metadata->preferences)]) ?>
                 </td>

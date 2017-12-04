@@ -1,6 +1,6 @@
-<div class="columns large-12">
+<div class="columns large-12" style="left: 1%">
 <br>
-<h1>Acerca</h1>
+<h1 style="font-family: 'Raleway', sans-serif; font-weight: bold;">Acerca</h1>
 
 <div class="row">
   <div class="column medium-7 large-7">

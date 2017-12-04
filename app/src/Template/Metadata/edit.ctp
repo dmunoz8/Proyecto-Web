@@ -13,7 +13,7 @@
                 ['confirm' => __('Seguro que desea borrar el metadato # {0}?', $metadata->preferences)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('List Metadata'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Lista de Metadatos'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
 <div class="metadata form large-9 medium-8 columns content">
@@ -21,10 +21,10 @@
     <fieldset>
         <legend><?= __('Editar Metadato') ?></legend>
         <?php
-            echo $this->Form->control('camera');
-            echo $this->Form->control('lens');
-            echo $this->Form->control('shutterSpeed');
-            echo $this->Form->control('aperture');
+            echo $this->Form->control('camera', array('label' => 'Camara'));
+            echo $this->Form->control('lens',array('label' => 'Lente'));
+            echo $this->Form->control('shutterSpeed', array('label' => 'Velocidad'));
+            echo $this->Form->control('aperture', array('label' => 'Apertura'));
             echo $this->Form->control('ISO');
         ?>
     </fieldset>

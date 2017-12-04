@@ -6,7 +6,7 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
+        <li class="heading"><?= __('Acciones') ?></li>
         <li><?= $this->Html->link(__('Lista de Metadatos'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
@@ -15,11 +15,11 @@
     <fieldset>
         <legend><?= __('Agregar Metadatos') ?></legend>
         <?php
-            echo $this->Form->control('camera');
-            echo $this->Form->control('lens');
-            echo $this->Form->control('shutterSpeed');
-            echo $this->Form->control('aperture');
-            echo $this->Form->control('ISO');
+        echo $this->Form->control('camera', array('label' => 'Camara'));
+        echo $this->Form->control('lens',array('label' => 'Lente'));
+        echo $this->Form->control('shutterSpeed', array('label' => 'Velocidad'));
+        echo $this->Form->control('aperture', array('label' => 'Apertura'));
+        echo $this->Form->control('ISO');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Agregar')) ?>

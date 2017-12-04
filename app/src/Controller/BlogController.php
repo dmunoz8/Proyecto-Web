@@ -57,11 +57,11 @@ class BlogController extends AppController
         if ($this->request->is('post')) {
             $blog = $this->Blog->patchEntity($blog, $this->request->getData());
             if ($this->Blog->save($blog)) {
-                $this->Flash->success(__('The blog has been saved.'));
+                $this->Flash->success(__('El evento fue agregado'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The blog could not be saved. Please, try again.'));
+            $this->Flash->error(__('El evento no pudo agregarse, intente de nuevo'));
         }
         $this->set(compact('blog'));
         $this->set('_serialize', ['blog']);
@@ -83,11 +83,11 @@ class BlogController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $blog = $this->Blog->patchEntity($blog, $this->request->getData());
             if ($this->Blog->save($blog)) {
-                $this->Flash->success(__('The blog has been saved.'));
+                $this->Flash->success(__('El evento ha sido actualizado'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The blog could not be saved. Please, try again.'));
+            $this->Flash->error(__('El evento no pudo actualizarse, intente de nuevo'));
         }
         $this->set(compact('blog'));
         $this->set('_serialize', ['blog']);
@@ -106,9 +106,9 @@ class BlogController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $blog = $this->Blog->get($id);
         if ($this->Blog->delete($blog)) {
-            $this->Flash->success(__('The blog has been deleted.'));
+            $this->Flash->success(__('El evento ha sido eliminado'));
         } else {
-            $this->Flash->error(__('The blog could not be deleted. Please, try again.'));
+            $this->Flash->error(__('El evento no pudo eliminarse, intente de nuevo'));
         }
 
         return $this->redirect(['action' => 'index']);

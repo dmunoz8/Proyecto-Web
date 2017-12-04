@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body{
+	font-family: 'Raleway', sans-serif;
+}
+
 .disabled a,
 a.disabled {
     pointer-events: none;
@@ -323,7 +329,7 @@ pre {
 }
 
 .top-bar.expanded, .top-bar,.top-bar-section ul li,.top-bar-section li:not(.has-form) a:not(.button) {
-    background: #116d76;
+    background: #3d3d3d;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button):hover {
@@ -505,10 +511,10 @@ div.message.hidden {
 }
 
 .content h4 {
-    color: #be140b;
+    color: #ffab40;
     padding-bottom: 0.5rem;
     margin-bottom: 20px;
-    border-bottom: 2px solid #be140b;
+    border-bottom: 2px solid #ffab40;
 }
 
 .content .related h4 {
@@ -524,9 +530,34 @@ table td {
     word-break: break-all;
 }
 
+.masonry { 
+    column-count: 2;
+	margin: 1.5em 0;
+    padding: 0;
+    -moz-column-gap: 1.5em;
+    -webkit-column-gap: 1.5em;
+    column-gap: 1.5em;
+    font-size: .85em;
+	}
+
+	.item { 
+	display: none;
+    background: #fff;
+    padding: 1em;
+    margin: 0 0 1.5em;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-shadow: 2px 2px 4px 0 #ccc;
+	}
+	
+}
+
 img.portfolio
 {
 	width: 100%;
+	height: auto;
 }
 
 .containerPortfolio {
@@ -544,11 +575,11 @@ img.portfolio
   width: 100%;
   opacity: 0;
   transition: .5s ease;
-  background-color: #008CBA;
+  background-color: black;
 }
 
 .containerPortfolio:hover .overlayPortfolio {
-  opacity: 1;
+  opacity: 0.8;
 }
 
 .textPortfolio {
@@ -580,9 +611,9 @@ img.portfolio
 
 /* Create three equal columns that floats next to each other */
 .columnPortfolio {
-    float: left;
+	float: left;
     width: 33.33%;
-	display: none;
+	display: block;
 }
 
 /* Clear floats after rows */ 
@@ -603,7 +634,7 @@ img.portfolio
 
 .blackBG
 {
-  background: #000;
+  background: #3d3d3d;
   position:relative;
   height:500px;
   width:auto;
@@ -619,11 +650,12 @@ img.portfolio
 }
 
 .containerEventos {
-    border: 2px solid #ccc;
-    background-color: #eee;
+    background-color: #546e7a !important;
+	box-shadow: 3px 3px 5px #3d3d3d;
     border-radius: 5px;
     padding: 16px;
     margin: 16px 0;
+	color: white;
 }
 
 /* Clear floats after containers */
@@ -644,6 +676,7 @@ img.portfolio
 .containerEventos  span {
     font-size: 20px;
     margin-right: 15px;
+	color: white;
 }
 
 /* Add media queries for responsiveness. This will center both the text and the image inside the container */

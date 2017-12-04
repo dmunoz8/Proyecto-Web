@@ -57,11 +57,11 @@ class MetadataController extends AppController
         if ($this->request->is('post')) {
             $metadata = $this->Metadata->patchEntity($metadata, $this->request->getData());
             if ($this->Metadata->save($metadata)) {
-                $this->Flash->success(__('The metadata has been saved.'));
+                $this->Flash->success(__('Los metadatos han sido agregados.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The metadata could not be saved. Please, try again.'));
+            $this->Flash->error(__('Los metadatos no se agregaron, intente de nuevo'));
         }
         $this->set(compact('metadata'));
         $this->set('_serialize', ['metadata']);
@@ -83,11 +83,11 @@ class MetadataController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $metadata = $this->Metadata->patchEntity($metadata, $this->request->getData());
             if ($this->Metadata->save($metadata)) {
-                $this->Flash->success(__('The metadata has been saved.'));
+                $this->Flash->success(__('Los metadatos se actualizaron'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The metadata could not be saved. Please, try again.'));
+            $this->Flash->error(__('Los metadatos no se actualizaron, intente de nuevo'));
         }
         $this->set(compact('metadata'));
         $this->set('_serialize', ['metadata']);
@@ -106,9 +106,9 @@ class MetadataController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $metadata = $this->Metadata->get($id);
         if ($this->Metadata->delete($metadata)) {
-            $this->Flash->success(__('The metadata has been deleted.'));
+            $this->Flash->success(__('El metadato ha sido borrado'));
         } else {
-            $this->Flash->error(__('The metadata could not be deleted. Please, try again.'));
+            $this->Flash->error(__('El metadato no pudo borrarse, intente de nuevo'));
         }
 
         return $this->redirect(['action' => 'index']);

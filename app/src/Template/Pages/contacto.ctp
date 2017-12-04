@@ -1,7 +1,7 @@
 <br>
-<div class="columns large-10">
+<div class="columns large-6" style="left: 2%">
 
-  <h1>Contacto</h1>
+  <h1 style="font-family: 'Raleway', sans-serif; font-weight: bold;">Contacto</h1>
 
   <?php
       //echo $this->Form->create($contacto);
