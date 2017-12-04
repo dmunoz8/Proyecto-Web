@@ -46,8 +46,24 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
               <li><?php echo $this->Html->link('Inicio', array('controller' => 'Pages','action' => 'display')); ?></li>
               <li><?php echo $this->Html->link('Portafolio', array('controller' => 'Photos','action' => 'index')); ?></li>
               <li><?php echo $this->Html->link('Eventos', array('controller' => 'Blog','action' => 'index')); ?></li>
+              <?php
+                if($authUser)
+                {
+                  echo "<li>"?>
+                    <?php echo $this->Html->link('Metadatos', array('controller' => 'Metadata','action' => 'index')); ?>
+                  <?php echo "</li>";
+                };
+              ?>
               <li><?php echo $this->Html->link('Acerca', array('controller' => 'Pages','action' => 'acerca')); ?></li>
               <li><?php echo $this->Html->link('Contacto', array('controller' => 'Pages','action' => 'contacto')); ?></li>
+              <?php
+                if($authUser)
+                {
+                  echo "<li>"?>
+                    <?php echo $this->Html->link('Salir', array('controller' => 'Users','action' => 'logout')); ?>
+                  <?php echo "</li>";
+                };
+              ?>
             </ul>
         </div>
     </nav>

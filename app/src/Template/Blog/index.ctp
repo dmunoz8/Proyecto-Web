@@ -6,8 +6,15 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Acciones') ?></li>
-        <li><?= $this->Html->link(__('Nuevo Evento'), ['action' => 'add']) ?></li>
+      <?php
+        if($authUser)
+        { echo "
+        <li class='heading'><?= __('Acciones') ?></li>
+        <li>" ?>
+          <?= $this->Html->link(__('Nuevo Evento'), ['action' => 'add']) ?>
+        <?php echo "</li>";
+        };?>
+
     </ul>
 </nav>
 <div class="blog index large-9 medium-8 columns content">
@@ -21,16 +28,19 @@
               <h4>{$blog->name}
               <div style='float: right'>" ?>
                 <?php
-                echo $this->Html->link(
-                  $this->Html->tag('span', '', array('class' => 'fa fa-pencil')),
-                  array('controller' => 'blog', 'action' => 'edit', $blog->eventId),
-                  array('escape' => false)
-                );
-                echo $this->Html->link(
-                  $this->Html->tag('span', '', array('class' => 'fa fa-trash')),
-                  array('controller' => 'blog', 'action' => 'delete', $blog->eventId),
-                  array('escape' => false)
-                );
+                if($authUser)
+                {
+                  echo $this->Html->link(
+                    $this->Html->tag('span', '', array('class' => 'fa fa-pencil')),
+                    array('controller' => 'blog', 'action' => 'edit', $blog->eventId),
+                    array('escape' => false)
+                  );
+                  echo $this->Html->link(
+                    $this->Html->tag('span', '', array('class' => 'fa fa-trash')),
+                    array('controller' => 'blog', 'action' => 'delete', $blog->eventId),
+                    array('escape' => false)
+                  );
+                }
                 ?>
               <?php echo "</div></h4>"; ?>
               <?php  echo "<p>Fecha: {$blog->eventDate}</p>
@@ -62,7 +72,7 @@
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $blog->eventId]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $blog->eventId]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $blog->eventId], ['confirm' => __('Are you sure you want to delete # {0}?', $blog->eventId)]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $blog->eventId], ['confirm' => __('Seguro que desea borror el evento # {0}?', $blog->eventId)]) ?>
                 </td>
             </tr> -->
 
@@ -70,12 +80,12 @@
     </table> -->
     <div class="paginator">
         <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->first('<< ' . __('Primero')) ?>
+            <?= $this->Paginator->prev('< ' . __('Anterior')) ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
+            <?= $this->Paginator->next(__('Siguiente') . ' >') ?>
+            <?= $this->Paginator->last(__('Ultimo') . ' >>') ?>
         </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+        <p><?= $this->Paginator->counter(['format' => __('Pagina {{page}} de {{pages}}, mostrando {{current}} record(s) de {{count}} en total')]) ?></p>
     </div>
 </div>

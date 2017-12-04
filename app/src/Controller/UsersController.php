@@ -24,6 +24,7 @@ class UsersController extends AppController
 
         $this->set(compact('users'));
         $this->set('_serialize', ['users']);
+        $this->set('authUser', $this->Auth->user());
     }
 
     /**
@@ -41,6 +42,7 @@ class UsersController extends AppController
 
         $this->set('user', $user);
         $this->set('_serialize', ['user']);
+        $this->set('authUser', $this->Auth->user());
     }
 
     /**
@@ -50,6 +52,7 @@ class UsersController extends AppController
      */
     public function add()
     {
+        $this->set('authUser', $this->Auth->user());
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
@@ -73,6 +76,7 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     {
+        $this->set('authUser', $this->Auth->user());
         $user = $this->Users->get($id, [
             'contain' => []
         ]);
@@ -98,6 +102,7 @@ class UsersController extends AppController
      */
     public function delete($id = null)
     {
+        $this->set('authUser', $this->Auth->user());
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
         if ($this->Users->delete($user)) {
@@ -108,9 +113,10 @@ class UsersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-	
+
 	public function login()
 	{
+    $this->set('authUser', $this->Auth->user());
 		if ($this->request->is('post')) {
 			$user = $this->Auth->identify();
 			if ($user) {
@@ -120,4 +126,9 @@ class UsersController extends AppController
 			$this->Flash->error('Your username or password is incorrect.');
 		}
 	}
+
+  public function logout()
+    {
+        return $this->redirect($this->Auth->logout());
+    }
 }

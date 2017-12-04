@@ -7,11 +7,11 @@
  * @var \App\Model\Entity\User $user
  */
 ?>
-<h1>Login</h1>
+<h1>Iniciar Sesion</h1>
 <?= $this->Form->create() ?>
-<?= $this->Form->control('email') ?>
-<?= $this->Form->control('password') ?>
-<?= $this->Form->button('Login') ?>
+<?= $this->Form->control('email', array('label' => 'Correo')) ?>
+<?= $this->Form->control('password', array('label' => 'Contraseña')) ?>
+<?= $this->Form->button('Entrar') ?>
 <?= $this->Form->end() ?>
 </div>
 </div>

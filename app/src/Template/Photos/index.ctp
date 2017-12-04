@@ -3,16 +3,22 @@
 </head>
 
 <div class="columns large-12">
-<h1>Portfolio</h1>
+<h1>Portafolio</h1>
 
-<?= $this->Html->link('Add Photo', ['action' => 'add']) ?>
+<?php
+  if($authUser)
+  {
+    echo $this->Html->link('Agregar Foto', ['action' => 'add']);
+  }
+  ?>
 <br>
 <br>
-<input type="radio" onclick="filterSelection('all')" name="category" checked> Show all
-<input type="radio" onclick="filterSelection('Landscape')" name="category"> Landscape
-<input type="radio" onclick="filterSelection('Urban')" name="category"> Urban
-<input type="radio" onclick="filterSelection('Architecture')" name="category"> Architecture
-<input type="radio" onclick="filterSelection('Black&White')" name="category"> Black & White
+<input type="radio" onclick="filterSelection('all')" name="category" checked> Todas
+<input type="radio" onclick="filterSelection('Paisaje')" name="category"> Paisaje
+<input type="radio" onclick="filterSelection('Urbano')" name="category"> Urbano
+<input type="radio" onclick="filterSelection('Arquitectura')" name="category"> Arquitectura
+<input type="radio" onclick="filterSelection('Blanco&Negro')" name="category"> Blanco & Negro
+<input type="radio" onclick="filterSelection('Retrato')" name="category"> Retrato
 
 <div class="rowPortfolio">
 
@@ -34,7 +40,24 @@
           <br>
           {$photo->metadata->ISO}
           </div>
-          <button class='fa fa-thumbs-o-up' onclick='addLike({$photo->id})'></button>
+          <button class='fa fa-thumbs-o-up' onclick='addLike({$photo->id})'></button>"
+          ?>
+          <?php
+            if($authUser)
+            {
+              echo $this->Html->link(
+                $this->Html->tag('span', '', array('class' => 'fa fa-pencil')),
+                array('controller' => 'photos', 'action' => 'edit', $photo->id),
+                array('escape' => false)
+              );
+              echo $this->Html->link(
+                $this->Html->tag('span', '', array('class' => 'fa fa-trash')),
+                array('controller' => 'photos', 'action' => 'delete', $photo->id),
+                array('escape' => false)
+              );
+            }
+          ?>
+          <?php echo "
           </div>
           </div>
           </div>";
